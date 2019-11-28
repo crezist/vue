@@ -21,7 +21,7 @@
 		data(){
 			return{
 				user:null,
-        suser:"",
+        suser:0,
 			}
 		},
 		methods:{
@@ -66,10 +66,11 @@
         	success(result){
             console.log(result);
         	if(result){
-            ob.tostoreuser()
-        	}else{
             ob.suser=result
         		ob.tomyshop()
+           
+        	}else{
+             ob.tostoreuser()
 
         	}
         	}
@@ -78,6 +79,7 @@
       //跳转商户页面
       tomyshop(){
         var ob=this;
+        // console.log(ob.suser)
         this.$router.push({
           "name":"myshop",
           query:{
