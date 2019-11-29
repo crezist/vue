@@ -10,7 +10,12 @@ import order from '@/components/order'
 import myshop from '@/components/myshop'
 import toinsertstoreuser from '@/components/toinsertstoreuser'
 import goodscollection from '@/components/goodscollection'
+<<<<<<< HEAD
 import shoporder from '@/components/shoporder'
+=======
+import changeGoodsinfo from '@/components/changeGoodsinfo'
+import insertgoodsinfo from '@/components/insertgoodsinfo'
+>>>>>>> db2dab2b9e45693fe8a6f6c750c15df4ecd6130a
 
 Vue.use(Router)
 
@@ -68,9 +73,20 @@ export default new Router({
       component:goodscollection
     },
     {
+<<<<<<< HEAD
       path: '/shoporder',
       name: 'shoporder',
       component:shoporder
+=======
+      path: '/changeGoodsinfo',
+      name: 'changeGoodsinfo',
+      component:changeGoodsinfo
+    },
+    {
+      path: '/insertgoodsinfo',
+      name: 'insertgoodsinfo',
+      component:insertgoodsinfo
+>>>>>>> db2dab2b9e45693fe8a6f6c750c15df4ecd6130a
     },
   ]
 })
