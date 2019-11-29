@@ -17,7 +17,7 @@
          </div>
          <div>
         <div class="massige"><i class="fa fa-commenting fa-2x"></i><br>消息</div>
-        <div class="massige"><i class="fa fa-tasks  fa-2x"></i><br>订单</div>
+        <div class="massige"  @click="tomyorder()"><i class="fa fa-tasks  fa-2x"></i><br>订单</div>
         <div class="massige"><i class="fa fa-cog  fa-2x"></i><br>编辑</div>
 
         <div class="massige"><i class="glyphicon glyphicon-qrcode" style="font-size: 22px;margin-top: 4px;"></i><br>二维码</div>
@@ -53,6 +53,26 @@
       }
     },
     methods:{
+      //查询店家订单
+            tomyorder(){
+              this.$router.push({
+                "name":"shoporder"
+              })
+            },
+            //查询店家名称（logo）
+            getlogo(){
+              var ob=this;
+              var url="http://127.0.0.1:8809/xm/StoreinfoController/selectstorename"
+              $.ajax(	url,{
+                data:{
+                  stid:ob.stid,
+                },
+              xhrFields: {"withCredentials": true},
+              success:function(result){
+               console.log(result)
+              }
+              })
+            },
       //退出账号
       logdown(){
         if(confirm("确认退出账号？")){

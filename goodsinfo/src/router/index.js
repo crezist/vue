@@ -10,6 +10,7 @@ import order from '@/components/order'
 import myshop from '@/components/myshop'
 import toinsertstoreuser from '@/components/toinsertstoreuser'
 import goodscollection from '@/components/goodscollection'
+import shoporder from '@/components/shoporder'
 
 Vue.use(Router)
 
@@ -65,6 +66,11 @@ export default new Router({
       path: '/goodscollection',
       name: 'goodscollection',
       component:goodscollection
+    },
+    {
+      path: '/shoporder',
+      name: 'shoporder',
+      component:shoporder
     },
   ]
 })
