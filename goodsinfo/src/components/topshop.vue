@@ -18,7 +18,7 @@
          <div>
         <div class="massige"><i class="fa fa-commenting fa-2x"></i><br>消息</div>
         <div class="massige"><i class="fa fa-tasks  fa-2x"></i><br>订单</div>
-        <div class="massige"><i class="fa fa-cog  fa-2x"></i><br>编辑</div>
+        <div class="massige"><i class="fa fa-cog  fa-2x" style="cursor: pointer;" @click="insertgoodsinfo()"></i><br>添加</div>
 
         <div class="massige"><i class="glyphicon glyphicon-qrcode" style="font-size: 22px;margin-top: 4px;"></i><br>二维码</div>
         <div class="massige"><img src="/../static/imgs/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png" style="width: 30px;height:30px;margin-top: 10px;" />
@@ -49,10 +49,15 @@
         length:-1,
         style_1:{position: "absolute"},
         dl:true,
-        user:""
+        user:"",
+        user2:{},
       }
     },
     methods:{
+      //添加商品
+      insertgoodsinfo(){
+        this.$router.push({"name":"insertgoodsinfo",query:{"userid":this.user2.userid}})
+      },
       //退出账号
       logdown(){
         if(confirm("确认退出账号？")){
@@ -82,6 +87,7 @@
             if(result!=""){
               ob.dl=false;
               ob.user=result.logname;
+              ob.user2=result;
             }else{
               ob.dl=true;
               ob.user="";

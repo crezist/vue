@@ -6,6 +6,16 @@
     margin: 7px;
     float: left;
   }
+  .tps i{
+    font-size: 30px;
+    cursor: pointer;
+    float: right;
+    margin: 10px;
+    display: none;
+  }
+  .tps:hover i{
+    display: block;
+  }
 </style>
 
 <template>
@@ -16,7 +26,9 @@
 </div>
   <div style="min-height: 500px;background-color: #000080;" class="container">
     <h1 v-if="ts!=''">{{ts}}</h1>
-    <div class="tps" v-for="gs in imgs" :style="gs.srcs" ></div>
+    <div class="tps" v-for="gs in imgs" :style="gs.srcs" >
+      <i class="fa fa-gear" @click.stop="runchange(gs.gdid)" ></i>
+    </div>
   </div>
   </div>
 </template>
@@ -30,7 +42,7 @@
        topup,
 
      },
-     data(){ 
+     data(){
        return{
          goods:[],
          ts:"",
@@ -69,7 +81,10 @@
           }
         	}
         })
-       }
+       },
+       runchange(gdid){
+         this.$router.push({"name":"changeGoodsinfo",query:{"gdid":gdid}})
+       },
      },
      mounted() {
        // console.log(this.$route.query.stid)
@@ -77,7 +92,7 @@
        // console.log(this.stid)
       this.selectgoodsbysuer();
      },
-
+      
    }
 </script>
 
